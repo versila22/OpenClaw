@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "gog": {
+      "version": "1.0.0",
+      "installedAt": 1772744602195
+    },
+    "qmd": {
+      "version": "1.0.0",
+      "installedAt": 1772802655093
+    }
+  }
+}

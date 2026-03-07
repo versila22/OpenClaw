@@ -1,0 +1,14 @@
+# System & Secrets
+.DS_Store
+*.log
+node_modules/
+.env
+
+# OpenClaw specifics (if present in workspace)
+openclaw.json
+credentials/
+private/
+
+# Large/Temporary files
+tmp/
+cache/
