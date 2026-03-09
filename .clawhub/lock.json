@@ -8,6 +8,10 @@
     "qmd": {
       "version": "1.0.0",
       "installedAt": 1772802655093
+    },
+    "notion": {
+      "version": "1.0.0",
+      "installedAt": 1772926216424
     }
   }
 }

@@ -1,36 +1,14 @@
 {
   "plugins": {
     "allow": [
-      "whatsapp",
       "discord",
-      "telegram",
-      "slack",
-      "nostr",
-      "googlechat"
+      "telegram"
     ],
     "entries": {
-      "whatsapp": {
-        "enabled": true
-      },
       "discord": {
         "enabled": true
       },
-      "imessage": {
-        "enabled": false
-      },
       "telegram": {
-        "enabled": true
-      },
-      "slack": {
-        "enabled": true
-      },
-      "nostr": {
-        "enabled": true
-      },
-      "signal": {
-        "enabled": false
-      },
-      "googlechat": {
         "enabled": true
       }
     }
@@ -38,52 +16,22 @@
   "channels": {
     "telegram": {
       "dmPolicy": "pairing",
-      "groupPolicy": "allowlist",
-      "streaming": "off",
+      "groupPolicy": "open",
+      "streaming": "partial",
       "botToken": "[REDACTED_BOTTOKEN]",
-      "enabled": true,
-      "linkPreview": false
-    },
-    "whatsapp": {
-      "enabled": true,
-      "dmPolicy": "pairing",
-      "groupPolicy": "allowlist",
-      "debounceMs": 0,
-      "mediaMaxMb": 50
-    },
-    "discord": {
-      "enabled": true,
-      "groupPolicy": "allowlist",
-      "streaming": "off"
+      "enabled": true
     }
   },
   "meta": {
-    "lastTouchedVersion": "2026.3.2",
-    "lastTouchedAt": "2026-03-07T22:55:47.205Z"
-  },
-  "wizard": {
-    "lastRunAt": "2026-03-06T22:23:09.791Z",
-    "lastRunVersion": "2026.3.1",
-    "lastRunCommand": "doctor",
-    "lastRunMode": "local"
-  },
-  "update": {
-    "channel": "stable",
-    "checkOnStart": false
-  },
-  "browser": {
-    "headless": true,
-    "noSandbox": true,
-    "defaultProfile": "openclaw"
+    "lastTouchedVersion": "2026.3.7",
+    "lastTouchedAt": "2026-03-08T23:00:12.838Z"
   },
   "models": {
     "mode": "merge"
   },
   "agents": {
     "defaults": {
-      "model": {
-        "primary": "Gemini 3 Pro Preview"
-      },
+      "model": "google/gemini-3-pro-preview",
       "models": {
         "google/gemini-3-pro-preview": {
           "alias": "Gemini 3 Pro Preview"
@@ -100,47 +48,45 @@
       },
       "memorySearch": {
         "enabled": true,
-        "provider": "local",
-        "local": {
-          "modelPath": "hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF/embeddinggemma-300m-qat-Q8_0.gguf"
-        },
-        "query": {
-          "hybrid": {
-            "enabled": true,
-            "vectorWeight": 0.7,
-            "textWeight": 0.3
-          }
-        },
-        "cache": {
-          "enabled": true
-        }
-      },
-      "contextPruning": {
-        "mode": "cache-ttl",
-        "ttl": "5m"
+        "provider": "local"
       },
       "compaction": {
-        "mode": "safeguard",
-        "reserveTokensFloor": 40000,
-        "memoryFlush": {
-          "enabled": true,
-          "softThresholdTokens": 4000,
-          "prompt": "Write any lasting notes to memory/YYYY-MM-DD.md; reply with NO_REPLY if nothing to store.",
-          "systemPrompt": "Session nearing compaction. Store durable memories now."
-        }
+        "mode": "safeguard"
       }
     },
     "list": [
       {
         "id": "main",
-        "name": "main"
+        "name": "main",
+        "subagents": {
+          "allowAgents": [
+            "chasseur-discret",
+            "agent-frere"
+          ]
+        }
+      },
+      {
+        "id": "chasseur-discret",
+        "name": "Chasseur Discret",
+        "workspace": "/data/.openclaw/agents/chasseur-discret/workspace",
+        "model": "google/gemini-3-pro-preview"
+      },
+      {
+        "id": "agent-frere",
+        "name": "Chasseur Frère",
+        "workspace": "/data/.openclaw/agents/agent-frere/workspace",
+        "model": "google/gemini-3-pro-preview"
+      },
+      {
+        "id": "agent-frere",
+        "name": "Conseiller Médico-Social",
+        "workspace": "/data/.openclaw/agents/agent-frere/workspace"
       }
     ]
   },
   "commands": {
     "native": "auto",
     "nativeSkills": "auto",
-    "bash": true,
     "restart": true,
     "ownerDisplay": "raw"
   },
@@ -151,16 +97,12 @@
     "mode": "local",
     "controlUi": {
       "dangerouslyAllowHostHeaderOriginFallback": true,
-      "allowInsecureAuth": true,
       "dangerouslyDisableDeviceAuth": true
     },
     "auth": {
       "mode": "token",
       "token": "[REDACTED_TOKEN]"
     },
-    "trustedProxies": [
-      "127.0.0.1/32"
-    ],
     "remote": {
       "token": "[REDACTED_TOKEN]"
     }

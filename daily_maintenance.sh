@@ -60,20 +60,17 @@ if [ $EXIT_CODE -eq 0 ]; then
     echo "Redémarrage du Gateway..." >> "$LOG_FILE"
     RESTART_OUTPUT=$(openclaw gateway restart 2>&1)
     
-    # 3. Sauvegarde Git quotidienne
-    echo "Exécution du backup Git..." >> "$LOG_FILE"
-    git add . >> "$LOG_FILE" 2>&1
-    if ! git diff-index --quiet HEAD --; then
-        git commit -m "chore: auto-backup $(date +%Y-%m-%d)" >> "$LOG_FILE" 2>&1
-        PUSH_OUTPUT=$(git push origin main 2>&1)
-        PUSH_STATUS=$?
-        if [ $PUSH_STATUS -eq 0 ]; then
-            BACKUP_MSG="\n\n✅ **Backup Git :** Succès"
-        else
-            BACKUP_MSG="\n\n⚠️ **Backup Git :** Échec (Push impossible - Vérifier auth)\n\`\`\`\n$PUSH_OUTPUT\n\`\`\`"
-        fi
+    # 3. Sauvegarde Git quotidienne (Secure)
+    echo "Exécution du backup Git sécurisé..." >> "$LOG_FILE"
+    
+    # Run the secure node script
+    node /data/.openclaw/workspace/scripts/secure_backup.js >> "$LOG_FILE" 2>&1
+    BACKUP_STATUS=$?
+    
+    if [ $BACKUP_STATUS -eq 0 ]; then
+        BACKUP_MSG="\n\n✅ **Backup Git :** Sécurisé & Poussé"
     else
-        BACKUP_MSG="\n\nℹ️ **Backup Git :** Aucun changement à sauvegarder."
+        BACKUP_MSG="\n\n⚠️ **Backup Git :** Échec (Voir logs)"
     fi
 
     REPORT="**Mise à jour terminée avec succès.**\n\n**Version actuelle :** $VERSION_INFO\n\n**Détails :**\n\`\`\`\n$UPDATE_OUTPUT\n\`\`\`\n\n**Statut du redémarrage :**\n$RESTART_OUTPUT$BACKUP_MSG"
