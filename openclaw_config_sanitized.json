@@ -1,37 +1,17 @@
 {
-  "plugins": {
-    "allow": [
-      "discord",
-      "telegram"
-    ],
-    "entries": {
-      "discord": {
-        "enabled": true
-      },
-      "telegram": {
-        "enabled": true
-      }
-    }
-  },
-  "channels": {
-    "telegram": {
-      "dmPolicy": "pairing",
-      "groupPolicy": "open",
-      "streaming": "partial",
-      "botToken": "[REDACTED_BOTTOKEN]",
-      "enabled": true
-    }
-  },
   "meta": {
     "lastTouchedVersion": "2026.3.7",
-    "lastTouchedAt": "2026-03-08T23:00:12.838Z"
+    "lastTouchedAt": "2026-03-09T16:42:04.412Z"
   },
   "models": {
     "mode": "merge"
   },
   "agents": {
     "defaults": {
-      "model": "google/gemini-3-pro-preview",
+      "model": {
+        "primary": "google/gemini-3.1-pro-preview",
+        "fallbacks": []
+      },
       "models": {
         "google/gemini-3-pro-preview": {
           "alias": "Gemini 3 Pro Preview"
@@ -44,6 +24,12 @@
         },
         "google/gemini-2.5-flash-lite": {
           "alias": "Gemini 2.5 Flash Lite"
+        },
+        "google/gemini-3.1-pro-preview": {
+          "alias": "Gemini 3.1 Pro Preview"
+        },
+        "google/gemini-3.1-flash-lite": {
+          "alias": "Gemini 3.1 Flash Lite"
         }
       },
       "memorySearch": {
@@ -61,7 +47,9 @@
         "subagents": {
           "allowAgents": [
             "chasseur-discret",
-            "agent-frere"
+            "agent-frere",
+            "conseiller-medico-social",
+            "tache-basique"
           ]
         }
       },
@@ -69,7 +57,7 @@
         "id": "chasseur-discret",
         "name": "Chasseur Discret",
         "workspace": "/data/.openclaw/agents/chasseur-discret/workspace",
-        "model": "google/gemini-3-pro-preview"
+        "model": "google/gemini-3-flash-preview"
       },
       {
         "id": "agent-frere",
@@ -79,11 +67,25 @@
       },
       {
         "id": "agent-frere",
+        "name": "Chasseur Frère",
+        "workspace": "/data/.openclaw/agents/agent-frere/workspace",
+        "model": "google/gemini-3-flash-preview"
+      },
+      {
+        "id": "conseiller-medico-social",
         "name": "Conseiller Médico-Social",
-        "workspace": "/data/.openclaw/agents/agent-frere/workspace"
+        "workspace": "/data/.openclaw/agents/conseiller-medico-social/workspace",
+        "model": "google/gemini-3-flash-preview"
+      },
+      {
+        "id": "tache-basique",
+        "name": "Tâches Basiques",
+        "workspace": "/data/.openclaw/agents/tache-basique/workspace",
+        "model": "google/gemini-3.1-flash-lite"
       }
     ]
   },
+  "tools": {},
   "commands": {
     "native": "auto",
     "nativeSkills": "auto",
@@ -92,6 +94,15 @@
   },
   "hooks": {
     "token": "[REDACTED_TOKEN]"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "[REDACTED_BOTTOKEN]",
+      "groupPolicy": "open",
+      "streaming": "partial"
+    }
   },
   "gateway": {
     "mode": "local",
@@ -105,6 +116,20 @@
     },
     "remote": {
       "token": "[REDACTED_TOKEN]"
+    }
+  },
+  "plugins": {
+    "allow": [
+      "discord",
+      "telegram"
+    ],
+    "entries": {
+      "discord": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      }
     }
   }
 }
