@@ -5,6 +5,10 @@ WEBHOOK_URL="https://discordapp.com/api/webhooks/1479604609478692925/ZbafnHoxKYT
 LOG_FILE="/data/.openclaw/workspace/maintenance.log"
 DATE=$(date "+%Y-%m-%d %H:%M:%S")
 
+# Patch pour permettre à systemctl --user de fonctionner en tâche de fond (cron)
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+
 # Fonction pour envoyer un message Discord
 send_discord() {
     local status="$1"
@@ -42,9 +46,9 @@ EOF
 
 echo "[$DATE] Démarrage de la maintenance..." > "$LOG_FILE"
 
-# 1. Mise à jour d'OpenClaw (sans redémarrage auto pour contrôler le flux)
+# 1. Mise à jour d'OpenClaw via npm (remplace 'openclaw update' pour les installations non-git)
 echo "Exécution de la mise à jour..." >> "$LOG_FILE"
-UPDATE_OUTPUT=$(openclaw update --yes --no-restart 2>&1)
+UPDATE_OUTPUT=$(npm install -g openclaw@latest 2>&1)
 EXIT_CODE=$?
 
 echo "$UPDATE_OUTPUT" >> "$LOG_FILE"
@@ -53,7 +57,7 @@ if [ $EXIT_CODE -eq 0 ]; then
     # Succès
     echo "Mise à jour réussie." >> "$LOG_FILE"
     
-    # Extraction de la version (tentative simple)
+    # Extraction de la version
     VERSION_INFO=$(openclaw --version)
     
     # 2. Redémarrage du service Gateway
@@ -80,7 +84,7 @@ else
     # Échec
     echo "Erreur lors de la mise à jour." >> "$LOG_FILE"
     
-    SUGGESTION="Veuillez vérifier les logs dans $LOG_FILE ou exécuter 'openclaw update' manuellement pour diagnostiquer le problème."
+    SUGGESTION="Veuillez vérifier les logs dans $LOG_FILE ou exécuter 'npm install -g openclaw@latest' manuellement pour diagnostiquer le problème."
     
     REPORT="**Erreur critique lors de la mise à jour.**\n\n**Code de sortie :** $EXIT_CODE\n\n**Sortie de la commande :**\n\`\`\`\n$UPDATE_OUTPUT\n\`\`\`\n\n👉 **Action requise :** $SUGGESTION"
     
