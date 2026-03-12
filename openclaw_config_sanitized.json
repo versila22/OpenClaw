@@ -1,7 +1,30 @@
 {
+  "plugins": {
+    "allow": [
+      "discord",
+      "telegram"
+    ],
+    "entries": {
+      "discord": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "dmPolicy": "pairing",
+      "groupPolicy": "open",
+      "streaming": "partial",
+      "botToken": "[REDACTED_BOTTOKEN]",
+      "enabled": true
+    }
+  },
   "meta": {
-    "lastTouchedVersion": "2026.3.7",
-    "lastTouchedAt": "2026-03-10T12:31:49.692Z"
+    "lastTouchedVersion": "2026.3.8",
+    "lastTouchedAt": "2026-03-11T04:37:27.408Z"
   },
   "models": {
     "mode": "merge"
@@ -95,15 +118,6 @@
   "hooks": {
     "token": "[REDACTED_TOKEN]"
   },
-  "channels": {
-    "telegram": {
-      "enabled": true,
-      "dmPolicy": "pairing",
-      "botToken": "[REDACTED_BOTTOKEN]",
-      "groupPolicy": "open",
-      "streaming": "partial"
-    }
-  },
   "gateway": {
     "mode": "local",
     "controlUi": {
@@ -116,20 +130,6 @@
     },
     "remote": {
       "token": "[REDACTED_TOKEN]"
-    }
-  },
-  "plugins": {
-    "allow": [
-      "discord",
-      "telegram"
-    ],
-    "entries": {
-      "discord": {
-        "enabled": true
-      },
-      "telegram": {
-        "enabled": true
-      }
     }
   }
 }
