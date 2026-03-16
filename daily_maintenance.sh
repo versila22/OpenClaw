@@ -30,9 +30,9 @@ if cd "$DOCKER_DIR"; then
     VERSION_INFO=$(docker exec openclaw-nmtd-openclaw-1 openclaw --version 2>/dev/null || echo "v2026.x")
     
     # 2. Sauvegarde Git
-    echo "Backup Git..." >> "$LOG_FILE"
+    echo "Backup Git via Docker." >> "$LOG_FILE"
     # Note : On utilise le chemin absolu vers le script node
-    node "$BASE_DATA_DIR/scripts/secure_backup.js" >> "$LOG_FILE" 2>&1
+    docker exec -e GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" openclaw-nmtd-openclaw-1 node /data/.openclaw/workspace/scripts/secure_backup.js >> "$LOG_FILE" 2>&1
     
     REPORT="**Mise à jour effectuée.**\n\n**Version :** $VERSION_INFO\n\n**Logs :**\n\`\`\`\n$UPDATE_OUTPUT\n\`\`\`"
     send_discord "success" "$REPORT"
