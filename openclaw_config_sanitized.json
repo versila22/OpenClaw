@@ -1,30 +1,7 @@
 {
-  "plugins": {
-    "allow": [
-      "discord",
-      "telegram"
-    ],
-    "entries": {
-      "discord": {
-        "enabled": true
-      },
-      "telegram": {
-        "enabled": true
-      }
-    }
-  },
-  "channels": {
-    "telegram": {
-      "dmPolicy": "pairing",
-      "groupPolicy": "open",
-      "streaming": "partial",
-      "botToken": "[REDACTED_BOTTOKEN]",
-      "enabled": true
-    }
-  },
   "meta": {
-    "lastTouchedVersion": "2026.3.8",
-    "lastTouchedAt": "2026-03-11T04:37:27.408Z"
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-16T16:01:10.493Z"
   },
   "models": {
     "mode": "merge"
@@ -53,6 +30,9 @@
         },
         "google/gemini-3.1-flash-lite": {
           "alias": "Gemini 3.1 Flash Lite"
+        },
+        "google/gemini-2.5-pro": {
+          "alias": "Gemini 2.5 Pro"
         }
       },
       "memorySearch": {
@@ -67,6 +47,7 @@
       {
         "id": "main",
         "name": "main",
+        "model": "google/gemini-3-flash-preview",
         "subagents": {
           "allowAgents": [
             "chasseur-discret",
@@ -118,18 +99,38 @@
   "hooks": {
     "token": "[REDACTED_TOKEN]"
   },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "[REDACTED_BOTTOKEN]",
+      "groupPolicy": "open",
+      "streaming": "partial"
+    }
+  },
   "gateway": {
     "mode": "local",
-    "controlUi": {
-      "dangerouslyAllowHostHeaderOriginFallback": true,
-      "dangerouslyDisableDeviceAuth": true
-    },
+    "controlUi": {},
     "auth": {
       "mode": "token",
       "token": "[REDACTED_TOKEN]"
     },
     "remote": {
       "token": "[REDACTED_TOKEN]"
+    }
+  },
+  "plugins": {
+    "allow": [
+      "discord",
+      "telegram"
+    ],
+    "entries": {
+      "discord": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      }
     }
   }
 }
