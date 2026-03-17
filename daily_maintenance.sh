@@ -3,7 +3,7 @@
 # --- CONFIGURATION (Chemins Absolus) ---
 WEBHOOK_URL="https://discordapp.com/api/webhooks/1479604609478692925/ZbafnHoxKYTuntCsZvu9PBTg8gFrtaRDJdXXfnH8e7W7F-wuJuWjsdKEZr1s3GXm9FEz"
 DOCKER_DIR="/docker/openclaw-nmtd"
-BASE_DATA_DIR="/docker/openclaw-nmtd/data/.openclaw/workspace"
+BASE_DATA_DIR="/data/.openclaw/workspace"
 LOG_FILE="$BASE_DATA_DIR/maintenance.log"
 DATE=$(date "+%Y-%m-%d %H:%M:%S")
 
@@ -20,8 +20,9 @@ send_discord() {
 
 echo "[$DATE] Démarrage de la maintenance..." > "$LOG_FILE"
 
-# 1. Mise à jour Docker
-if cd "$DOCKER_DIR"; then
+# 1. Mise à jour Docker (Skipped in container environment)
+if [ -d "$DOCKER_DIR" ]; then
+    cd "$DOCKER_DIR"
     echo "Pulling images..." >> "$LOG_FILE"
     UPDATE_OUTPUT=$(docker compose pull 2>&1)
     docker compose up -d >> "$LOG_FILE" 2>&1
@@ -31,11 +32,19 @@ if cd "$DOCKER_DIR"; then
     
     # 2. Sauvegarde Git
     echo "Backup Git via Docker." >> "$LOG_FILE"
-    # Note : On utilise le chemin absolu vers le script node
     docker exec -e GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" openclaw-nmtd-openclaw-1 node /data/.openclaw/workspace/scripts/secure_backup.js >> "$LOG_FILE" 2>&1
     
     REPORT="**Mise à jour effectuée.**\n\n**Version :** $VERSION_INFO\n\n**Logs :**\n\`\`\`\n$UPDATE_OUTPUT\n\`\`\`"
     send_discord "success" "$REPORT"
 else
-    send_discord "failure" "Impossible d'accéder au dossier $DOCKER_DIR"
+    # Fallback to local execution for non-Docker tasks
+    echo "DOCKER_DIR not found. Running local backup..." >> "$LOG_FILE"
+    VERSION_INFO=$(openclaw --version 2>/dev/null || echo "v2026.x")
+    
+    if [ -f "/data/.openclaw/workspace/scripts/secure_backup.js" ]; then
+        node /data/.openclaw/workspace/scripts/secure_backup.js >> "$LOG_FILE" 2>&1
+        send_discord "success" "Maintenance locale effectuée (Docker inaccessible).\nVersion: $VERSION_INFO"
+    else
+        send_discord "failure" "DOCKER_DIR inaccessible et script de backup introuvable."
+    fi
 fi
