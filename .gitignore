@@ -5,7 +5,6 @@ node_modules/
 .env
 
 # OpenClaw specifics (if present in workspace)
-openclaw.json
 credentials/
 private/
 

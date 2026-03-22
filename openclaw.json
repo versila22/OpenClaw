@@ -1,0 +1,137 @@
+{
+  "plugins": {
+    "allow": [
+      "telegram"
+    ],
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "dmPolicy": "pairing",
+      "groupPolicy": "open",
+      "streaming": "partial",
+      "botToken": "8683563490:AAGJQMqPF6GfuW7E4OuL2Vzv-Fi-eHMIiIg",
+      "enabled": true
+    }
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-22T20:47:17.111Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-22T00:15:37.109Z",
+    "lastRunVersion": "2026.3.13",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google/gemini-2.5-flash"
+      },
+      "models": {
+        "google/gemini-pro": {
+          "alias": "Gemini Pro (Stable)"
+        },
+        "google/gemini-flash": {
+          "alias": "Gemini Flash (Stable)"
+        },
+        "google/gemini-3.1-pro-preview": {
+          "alias": "Gemini 3.1 Pro Preview"
+        },
+        "google/gemini-3-flash-preview": {
+          "alias": "Gemini 3 Flash Preview"
+        },
+        "google/gemini-2.5-flash": {
+          "alias": "Gemini 2.5 Flash"
+        },
+        "google/gemini-2.5-pro": {
+          "alias": "Gemini 2.5 Pro"
+        },
+        "google/gemini-2.5-pro-preview-06-05": {}
+      },
+      "workspace": "/data/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 1
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "main"
+      }
+    ]
+  },
+  "tools": {
+    "profile": "coding",
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "gemini"
+      }
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "hooks": {
+    "token": "hooks_AQp8UJWb39Kuc9Ki0yOCdtq9upZobcao",
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "AQp8UJWb39Kuc9Ki0yOCdtq9upZobcao"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "remote": {
+      "token": "AQp8UJWb39Kuc9Ki0yOCdtq9upZobcao"
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  }
+}
