@@ -11,3 +11,6 @@ private/
 # Large/Temporary files
 tmp/
 cache/
+/config/client_secret.json
+/config/token.json
+/youtube_env/
