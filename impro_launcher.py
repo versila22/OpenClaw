@@ -2,7 +2,7 @@ import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from dotenv import load_dotenv
-import time
+import sys
 
 # Chargement des variables d'environnement
 load_dotenv()
@@ -33,23 +33,30 @@ def start_impro_session(playlist_name="Impro"):
     devices = sp.devices()['devices']
     active_device = next((d for d in devices if d['is_active']), None)
     
+    # Préférence pour ASUSJAY si disponible pour le volume
+    asus = next((d for d in devices if "ASUSJAY" in d['name'].upper()), None)
+    if asus:
+        active_device = asus
+
     if not active_device:
         if devices:
             active_device = devices[0]
-            print(f"⚠️ Aucun device actif. Tentative de transfert sur : {active_device['name']}")
+            print(f"⚠️ Transfert sur : {active_device['name']}")
             sp.transfer_playback(device_id=active_device['id'], force_play=False)
         else:
-            print("❌ Aucun device Spotify détecté. Ouvre Spotify sur un appareil.")
+            print("❌ Aucun device Spotify détecté.")
             return
 
     # 3. Lancer la lecture
-    print(f"🚀 Lancement de la lecture sur : {active_device['name']}")
+    print(f"🚀 Lancement sur : {active_device['name']}")
     try:
         sp.start_playback(device_id=active_device['id'], context_uri=playlist['uri'])
         sp.shuffle(state=True, device_id=active_device['id'])
-        print("✅ Lecture en cours (Mode Aléatoire activé).")
+        print("✅ Lecture OK.")
     except Exception as e:
-        print(f"❌ Erreur lors du lancement : {e}")
+        print(f"❌ Erreur : {e}")
 
 if __name__ == "__main__":
-    start_impro_session()
+    # Lecture de l'argument s'il existe
+    p_name = sys.argv[1] if len(sys.argv) > 1 else "Impro"
+    start_impro_session(p_name)

@@ -1,0 +1,63 @@
+{
+  "categories": {
+    "western": [
+      "The Ecstasy of Gold - Ennio Morricone",
+      "The Magnificent Seven - Elmer Bernstein",
+      "Lucky Luke Theme",
+      "A Fistful of Dollars - Ennio Morricone"
+    ],
+    "dessin_anime": [
+      "The Merry-Go-Round Broke Down (Looney Tunes Theme)",
+      "Tom & Jerry Theme",
+      "The Pink Panther Theme",
+      "DuckTales Theme"
+    ],
+    "conte": [
+      "Hedwig's Theme - John Williams",
+      "Cinderella: Main Title - Disney",
+      "Once Upon a Dream - Sleeping Beauty",
+      "Nutcracker Suite: Waltz of the Flowers"
+    ],
+    "policier": [
+      "Harlem Nocturne - Sam Taylor",
+      "Taxi Driver Theme - Bernard Herrmann",
+      "Theme from Shaft - Isaac Hayes",
+      "Mission: Impossible Theme"
+    ],
+    "classique": [
+      "Marche pour la Cérémonie des Turcs - Lully",
+      "Le Nozze di Figaro: Overture - Mozart",
+      "Canon in D - Pachelbel",
+      "The Four Seasons: Winter - Vivaldi"
+    ],
+    "film_muet": [
+      "The Entertainer - Scott Joplin",
+      "Maple Leaf Rag - Scott Joplin",
+      "Sabre Dance - Khachaturian",
+      "Charlie Chaplin - Nonsense Song"
+    ],
+    "soap_opera": [
+      "Nadia's Theme (The Young and the Restless)",
+      "Days of Our Lives Theme",
+      "General Hospital Theme",
+      "Dramatique Piano Stinger (Custom)"
+    ]
+  },
+  "protocols": {
+    "mc_entry": [
+      "Seven Nation Army - The White Stripes",
+      "Imperial March - John Williams",
+      "Eye of the Tiger - Survivor"
+    ],
+    "player_entry": [
+      "Uptown Funk - Bruno Mars",
+      "Can't Stop - Red Hot Chili Peppers",
+      "Happy - Pharrell Williams"
+    ],
+    "show_end": [
+      "The End - The Doors",
+      "Don't Stop Me Now - Queen",
+      "I Will Survive - Gloria Gaynor"
+    ]
+  }
+}

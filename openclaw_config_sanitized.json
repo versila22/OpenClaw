@@ -1,13 +1,9 @@
 {
   "plugins": {
     "allow": [
-      "discord",
       "telegram"
     ],
     "entries": {
-      "discord": {
-        "enabled": true
-      },
       "telegram": {
         "enabled": true
       }
@@ -24,7 +20,21 @@
   },
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-16T16:49:38.292Z"
+    "lastTouchedAt": "2026-03-22T20:47:17.111Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-22T00:15:37.109Z",
+    "lastRunVersion": "2026.3.13",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      }
+    }
   },
   "models": {
     "mode": "merge"
@@ -32,12 +42,17 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "google/gemini-3.1-pro-preview",
-        "fallbacks": []
+        "primary": "google/gemini-2.5-flash"
       },
       "models": {
-        "google/gemini-3-pro-preview": {
-          "alias": "Gemini 3 Pro Preview"
+        "google/gemini-pro": {
+          "alias": "Gemini Pro (Stable)"
+        },
+        "google/gemini-flash": {
+          "alias": "Gemini Flash (Stable)"
+        },
+        "google/gemini-3.1-pro-preview": {
+          "alias": "Gemini 3.1 Pro Preview"
         },
         "google/gemini-3-flash-preview": {
           "alias": "Gemini 3 Flash Preview"
@@ -45,92 +60,78 @@
         "google/gemini-2.5-flash": {
           "alias": "Gemini 2.5 Flash"
         },
-        "google/gemini-2.5-flash-lite": {
-          "alias": "Gemini 2.5 Flash Lite"
-        },
-        "google/gemini-3.1-pro-preview": {
-          "alias": "Gemini 3.1 Pro Preview"
-        },
-        "google/gemini-3.1-flash-lite": {
-          "alias": "Gemini 3.1 Flash Lite"
-        },
         "google/gemini-2.5-pro": {
           "alias": "Gemini 2.5 Pro"
-        }
+        },
+        "google/gemini-2.5-pro-preview-06-05": {}
       },
-      "memorySearch": {
-        "enabled": true,
-        "provider": "local"
-      },
+      "workspace": "/data/.openclaw/workspace",
       "compaction": {
         "mode": "safeguard"
-      }
+      },
+      "maxConcurrent": 1
     },
     "list": [
       {
         "id": "main",
-        "name": "main",
-        "model": "google/gemini-3-flash-preview",
-        "subagents": {
-          "allowAgents": [
-            "chasseur-discret",
-            "agent-frere",
-            "conseiller-medico-social",
-            "tache-basique"
-          ]
-        }
-      },
-      {
-        "id": "chasseur-discret",
-        "name": "Chasseur Discret",
-        "workspace": "/data/.openclaw/agents/chasseur-discret/workspace",
-        "model": "google/gemini-3-flash-preview"
-      },
-      {
-        "id": "agent-frere",
-        "name": "Chasseur Frère",
-        "workspace": "/data/.openclaw/agents/agent-frere/workspace",
-        "model": "google/gemini-3-pro-preview"
-      },
-      {
-        "id": "agent-frere",
-        "name": "Chasseur Frère",
-        "workspace": "/data/.openclaw/agents/agent-frere/workspace",
-        "model": "google/gemini-3-pro-preview"
-      },
-      {
-        "id": "conseiller-medico-social",
-        "name": "Conseiller Médico-Social",
-        "workspace": "/data/.openclaw/agents/conseiller-medico-social/workspace",
-        "model": "google/gemini-3-flash-preview"
-      },
-      {
-        "id": "tache-basique",
-        "name": "Tâches Basiques",
-        "workspace": "/data/.openclaw/agents/tache-basique/workspace",
-        "model": "google/gemini-3.1-flash-lite"
+        "name": "main"
       }
     ]
   },
-  "tools": {},
+  "tools": {
+    "profile": "coding",
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "gemini"
+      }
+    }
+  },
   "commands": {
     "native": "auto",
     "nativeSkills": "auto",
     "restart": true,
     "ownerDisplay": "raw"
   },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
   "hooks": {
-    "token": "[REDACTED_TOKEN]"
+    "token": "[REDACTED_TOKEN]",
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
   },
   "gateway": {
+    "port": 18789,
     "mode": "local",
-    "controlUi": {},
+    "bind": "loopback",
     "auth": {
       "mode": "token",
       "token": "[REDACTED_TOKEN]"
     },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
     "remote": {
       "token": "[REDACTED_TOKEN]"
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
     }
   }
 }

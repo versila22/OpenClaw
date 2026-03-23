@@ -7,6 +7,10 @@ import time
 load_dotenv()
 
 def get_spotify_client():
+    # Suppression du cache pour forcer un nouveau jeton avec les autorisations fraîches
+    if os.path.exists(".cache"):
+        os.remove(".cache")
+        
     scope = "playlist-modify-public playlist-modify-private playlist-read-private"
     return spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, open_browser=False))
 
@@ -31,40 +35,27 @@ def add_tracks_by_queries(sp, playlist_id, queries):
             print(f"   + Ajouté : {results['tracks']['items'][0]['name']} - {results['tracks']['items'][0]['artists'][0]['name']}")
     
     if track_ids:
-        # Utilisation de /items au lieu de /tracks (Migration Février 2026)
         sp.playlist_add_items(playlist_id, track_ids)
 
 def setup_impro_playlists():
     sp = get_spotify_client()
     
-    # 1. Cabaret +16 ans (Ambiance feutrée, jazzy, suggestive, dark)
+    # 1. Cabaret +16 ans
     cabaret_queries = [
-        "Miley Cyrus Flowers", # Nouveauté
-        "Sabrina Carpenter Espresso", # Nouveauté
-        "Billie Eilish Birds of a Feather", # Nouveauté
-        "Sophie Ellis-Bextor Murder on the Dancefloor", # Resurgence
-        "Liza Minnelli Mein Herr", # Classique
-        "Nancy Sinatra These Boots Are Made for Walkin'", # Atemporel
-        "Portishead Glory Box", # Suggestif
-        "The White Stripes Seven Nation Army", # Energie
-        "Lady Gaga Abracadabra", # Nouveauté 2025
-        "Amy Winehouse Back to Black" # Atemporel
+        "Miley Cyrus Flowers", "Sabrina Carpenter Espresso", "Billie Eilish Birds of a Feather",
+        "Sophie Ellis-Bextor Murder on the Dancefloor", "Liza Minnelli Mein Herr",
+        "Nancy Sinatra These Boots Are Made for Walkin'", "Portishead Glory Box",
+        "The White Stripes Seven Nation Army", "Lady Gaga Abracadabra", "Amy Winehouse Back to Black"
     ]
     pl_cabaret = create_or_get_playlist(sp, "Impro - Cabaret +16")
     add_tracks_by_queries(sp, pl_cabaret, cabaret_queries)
 
-    # 2. Match +9 ans (Énergie, Pop, Fun, Familial)
+    # 2. Match +9 ans
     match_queries = [
-        "Rosé Bruno Mars APT", # Nouveauté 2025
-        "Benson Boone Beautiful Things", # Nouveauté
-        "Queen Don't Stop Me Now", # Atemporel
-        "ABBA Dancing Queen", # Atemporel
-        "Daft Punk Get Lucky", # Atemporel
-        "Taylor Swift Fortnight", # Nouveauté
-        "Natasha Bedingfield Unwritten", # Classique / Fun
-        "Pharrell Williams Happy", # Familial
-        "Justin Timberlake Can't Stop the Feeling", # Fun
-        "Earth Wind & Fire September" # Atemporel
+        "Rosé Bruno Mars APT", "Benson Boone Beautiful Things", "Queen Don't Stop Me Now",
+        "ABBA Dancing Queen", "Daft Punk Get Lucky", "Taylor Swift Fortnight",
+        "Natasha Bedingfield Unwritten", "Pharrell Williams Happy",
+        "Justin Timberlake Can't Stop the Feeling", "Earth Wind & Fire September"
     ]
     pl_match = create_or_get_playlist(sp, "Impro - Match +9")
     add_tracks_by_queries(sp, pl_match, match_queries)

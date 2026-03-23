@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "google": {
+      "command": "npx",
+      "env": {
+        "GOOGLE_API_KEY": "AIzaSyALPD0MjIOGrILHCQS25JaIb9s7FV_JzWA"
+      }
+    }
+  },
+  "imports": []
+}
