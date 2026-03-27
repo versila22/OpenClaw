@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "profiles": {
+    "nexos:default": {
+      "provider": "nexos",
+      "type": "api_key",
+      "key": ""
+    }
+  }
+}

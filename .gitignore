@@ -12,3 +12,7 @@ private/
 tmp/
 cache/
 /config/token.json
+#/config/openclaw.json
+/config/client_secret.json
+data/
+*.bak
