@@ -1,0 +1,450 @@
+{
+  "picture": {
+    "hidden": false,
+    "url": "https://rxresu.me/uploads/019c477e-c131-748d-85e8-ffaf28258ac0/pictures/1773154558766.webp",
+    "size": 100,
+    "rotation": 0,
+    "aspectRatio": 1,
+    "borderRadius": 0,
+    "borderColor": "rgba(0, 0, 0, 0.5)",
+    "borderWidth": 0,
+    "shadowColor": "rgba(0, 0, 0, 0.5)",
+    "shadowWidth": 0
+  },
+  "basics": {
+    "name": "Jérôme Jacq",
+    "headline": "Ingénieur Solutions IA & Automation | FinOps LLM | Scrum Master PSM1",
+    "email": "jerome.jacq@gmail.com",
+    "phone": "0667334598",
+    "location": "Angers",
+    "website": {
+      "url": "https://www.linkedin.com/in/jrmejacq/",
+      "label": ""
+    },
+    "customFields": [
+      {
+        "id": "019d1f72-386f-73bb-82da-afa665ecbb10",
+        "icon": "github-logo",
+        "text": "",
+        "link": "https://github.com/versila22"
+      }
+    ]
+  },
+  "summary": {
+    "title": "Profil",
+    "columns": 1,
+    "hidden": false,
+    "content": "<p>Ingénieur senior avec <strong>20 ans d'expérience</strong> en environnements critiques (Cnam/Assurance Maladie, Thales), je conçois et déploie des <strong>solutions IA appliquées</strong> à des usages métier concrets.<br><br>Agents autonomes, automatisation de processus, prototypage rapide d'outils IA — je fais le lien entre <strong>enjeux terrain</strong>, <strong>delivery technique</strong> et <strong>maîtrise des coûts LLM</strong> (FinOps for AI). Scrum Master certifié, Product Owner et facilitateur agile : j'anime et coordonne des équipes dans des contextes d'incertitude et de transformation.</p>"
+  },
+  "sections": {
+    "profiles": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "experience": {
+      "title": "Expérience",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019c4788-d300-771d-8089-22dd6c18753f",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "Cnam (Assurance Maladie)",
+          "position": "Référent Produit & Technique",
+          "location": "Angers",
+          "period": "Avril 2018 – Présent",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<ul><li><p>Responsable de plusieurs applications critiques au sein du pôle transverse de soutien technique (Assurance Maladie).</p></li><li><p>Pilotage et expertise de la plateforme de gestion d'API <strong>Gravitee</strong> : passerelles, sécurité, monitoring, gouvernance des APIs.</p></li><li><p>Coordination d'équipes pluridisciplinaires en mode <strong>Agile (Scrum/Kanban)</strong> sur des produits complexes à fort impact métier.</p></li><li><p>Interface entre équipes métier et développement : cadrage des besoins, priorisation, suivi de delivery.</p></li></ul>",
+          "roles": []
+        },
+        {
+          "id": "019c4789-ebaa-731e-9476-45224503ed94",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "Conserto",
+          "position": "Scrum Master & Ingénieur JEE Senior",
+          "location": "Nantes",
+          "period": "Janvier 2014 – Mars 2018",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<ul><li><p>Mission longue durée pour la Cnam : conception et développement d'applications web et bus applicatifs critiques.</p></li><li><p>Rôle de <strong>Scrum Master</strong> pour une équipe de 5 personnes : cérémonies, facilitation, amélioration continue.</p></li><li><p>Technologies : <strong>Java/JEE, Spring, MyBatis, SQL Server</strong>.</p></li></ul>",
+          "roles": []
+        }
+      ]
+    },
+    "education": {
+      "title": "Formation",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019c4798-4e83-7591-819e-434af400e151",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "school": "ENSSAT",
+          "degree": "Diplôme d'Ingénieur en Logiciels Informatiques",
+          "area": "",
+          "grade": "",
+          "location": "Lannion",
+          "period": "2005",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019c4798-ec3e-774b-a0e6-8ee14f5ad522",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "school": "ECE Paris",
+          "degree": "Classe préparatoire intégrée",
+          "area": "",
+          "grade": "",
+          "location": "Paris",
+          "period": "2001",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019c74f5-5e5d-721a-af1b-b217d5d82631",
+          "hidden": true,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "school": "Lycée Savina",
+          "degree": "Bac S",
+          "area": "",
+          "grade": "Mention Assez Bien",
+          "location": "",
+          "period": "1999",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        }
+      ]
+    },
+    "projects": {
+      "title": "Projets IA & Prototypes",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "skills": {
+      "title": "Compétences",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019c478b-4731-74dc-82ed-4dd37a371dfc",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "IA & Automation",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "Anthropic Claude",
+            "Gemini API",
+            "openClaw",
+            "n8n (Workflows)",
+            "Lovable",
+            "Agents autonomes",
+            "Prompt Engineering"
+          ]
+        },
+        {
+          "id": "019c478c-df15-7476-acd0-66dd45c41f2f",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "Back-end & Cloud",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "Vertex AI (Google Cloud)",
+            "API REST/OpenAPI",
+            "Gravitee",
+            "Java/Spring Boot",
+            "Docker"
+          ]
+        },
+        {
+          "id": "019c478e-0f43-760b-aef3-9a49533ad9ab",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "FinOps & Agilité",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "Optimisation coûts LLM",
+            "FinOps for AI",
+            "Scrum Master (PSM1)",
+            "Product Owner (CSPO)",
+            "Facilitateur Agile (ICAgile)",
+            "Kanban"
+          ]
+        },
+        {
+          "id": "019c478e-bd54-73ce-927b-f1f2ee565931",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "Soft Skills",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "Process Communication Model (PCM)",
+            "Facilitation",
+            "Conduite du changement",
+            "Pédagogie technique"
+          ]
+        }
+      ]
+    },
+    "languages": {
+      "title": "Langues",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019c478f-354a-779c-96fb-e8afa82f73f4",
+          "hidden": false,
+          "language": "English",
+          "fluency": "Niveau Professionnel (TOEIC : 850/990)",
+          "level": 4
+        }
+      ]
+    },
+    "interests": {
+      "title": "Centres d'intérêt",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019c4802-a771-756f-972b-c5390c08f1bf",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "Théâtre d'improvisation",
+          "keywords": [
+            "Écoute active",
+            "Adaptation",
+            "Leadership situationnel"
+          ]
+        }
+      ]
+    },
+    "awards": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "certifications": {
+      "title": "Certifications",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019c4791-d45e-7408-83a7-efbd5e5f9316",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "FinOps for AI",
+          "issuer": "The Linux Foundation",
+          "date": "En cours",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<p></p>"
+        },
+        {
+          "id": "019c4792-7151-746d-a508-7b7f54758338",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "FinOps Certified Practitioner",
+          "issuer": "The Linux Foundation",
+          "date": "janvier 2025",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<p></p>"
+        },
+        {
+          "id": "019c4797-691c-7519-9ded-d6988c2520a5",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "Process Communication Model (Niveau 1 & 2)",
+          "issuer": "Kahler Communication France",
+          "date": "Déc. 2025",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<p></p>"
+        },
+        {
+          "id": "019c4796-d338-72c9-8c40-cfee57c63e93",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "Facilitateur Agile",
+          "issuer": "ICAgile",
+          "date": "Juin 2025",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019c4796-18bc-75d9-971b-8de89a4e5d13",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "Certified Scrum Product Owner (CSPO)",
+          "issuer": "Scrum.org",
+          "date": "Oct. 2022",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019c4793-93b5-7758-9f01-48eeef68b8ba",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "Professional Scrum Master I (PSM1)",
+          "issuer": "Scrum.org",
+          "date": "Août 2016",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<p></p>"
+        }
+      ]
+    },
+    "publications": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "volunteer": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "references": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    }
+  },
+  "customSections": [],
+  "metadata": {
+    "template": "ditgar",
+    "layout": {
+      "sidebarWidth": 28,
+      "pages": [
+        {
+          "fullWidth": false,
+          "main": [
+            "profiles",
+            "summary",
+            "experience",
+            "projects",
+            "certifications",
+            "education",
+            "volunteer",
+            "references"
+          ],
+          "sidebar": [
+            "skills",
+            "awards",
+            "languages",
+            "interests",
+            "publications"
+          ]
+        }
+      ]
+    },
+    "css": {
+      "enabled": false,
+      "value": ""
+    },
+    "page": {
+      "gapX": 4,
+      "gapY": 6,
+      "marginX": 14,
+      "marginY": 12,
+      "format": "a4",
+      "locale": "en-US",
+      "hideIcons": false
+    },
+    "design": {
+      "level": {
+        "icon": "star",
+        "type": "circle"
+      },
+      "colors": {
+        "primary": "rgba(220, 38, 38, 1)",
+        "text": "rgba(0, 0, 0, 1)",
+        "background": "rgba(255, 255, 255, 1)"
+      }
+    },
+    "typography": {
+      "body": {
+        "fontFamily": "IBM Plex Serif",
+        "fontWeights": [
+          "400",
+          "500"
+        ],
+        "fontSize": 10,
+        "lineHeight": 1.5
+      },
+      "heading": {
+        "fontFamily": "IBM Plex Serif",
+        "fontWeights": [
+          "600"
+        ],
+        "fontSize": 14,
+        "lineHeight": 1.5
+      }
+    },
+    "notes": ""
+  }
+}

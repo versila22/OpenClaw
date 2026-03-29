@@ -1,0 +1,21 @@
+# Sensitive
+*.key
+*.pem
+.env
+*.token
+openclaw.json
+
+# Media / large files
+../media/
+*.mp4
+*.webp
+*.mp3
+
+# Cache
+.cache/
+__pycache__/
+*.pyc
+node_modules/
+
+# CV download helper
+cv-download.html
