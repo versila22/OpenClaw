@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "google": {
+      "command": "npx",
+      "env": {
+        "GOOGLE_API_KEY": "[REDACTED - revoked leaked key]"
+      }
+    }
+  },
+  "imports": []
+}

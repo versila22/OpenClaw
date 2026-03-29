@@ -1,0 +1,44 @@
+services:
+  openclaw-gateway:
+    image: ${OPENCLAW_IMAGE:-ghcr.io/hostinger/hvps-openclaw:latest}
+    container_name: openclaw-gateway
+    restart: unless-stopped
+    env_file:
+      - .env
+
+    # On supprime la ligne 'command', on laisse l'image faire son initialisation
+    environment:
+      - OPENCLAW_GATEWAY_MODE=local
+#      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}
+      - TZ=Europe/Paris
+    
+    volumes:
+      - ./config:/data/.openclaw
+      - ./workspace:/data/.openclaw/workspace
+
+    networks:
+      - traefik_default
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.openclaw.rule=Host(`72.61.196.210`)"
+      - "traefik.http.routers.openclaw.tls=true"
+      # Traefik vise désormais le port 8080 (notre Sidecar)
+      - "traefik.http.services.openclaw.loadbalancer.server.port=8080"
+      - "traefik.docker.network=traefik_default"
+
+  # LE SIDECAR MAGIQUE
+  openclaw-bridge:
+    image: alpine:latest
+    container_name: openclaw-bridge
+    # Fusionne avec le réseau du conteneur gateway pour accéder à son 127.0.0.1
+    network_mode: "service:openclaw-gateway" 
+    restart: unless-stopped
+    # Installe socat à la volée et crée le pont entre 8080 et 18789
+    command: /bin/sh -c "apk add --no-cache socat && socat tcp-listen:8080,fork,reuseaddr tcp:127.0.0.1:18789"
+    depends_on:
+      - openclaw-gateway
+
+networks:
+  traefik_default:
+    external: true
