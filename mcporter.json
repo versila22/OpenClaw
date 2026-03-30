@@ -3,7 +3,7 @@
     "google": {
       "command": "npx",
       "env": {
-        "GOOGLE_API_KEY": "[REDACTED - revoked leaked key]"
+        "GOOGLE_API_KEY": "[REDACTED - active key stored in config/env]"
       }
     }
   },
