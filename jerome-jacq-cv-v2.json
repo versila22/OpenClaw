@@ -13,7 +13,7 @@
   },
   "basics": {
     "name": "Jérôme Jacq",
-    "headline": "Ingénieur Solutions IA & Automation | FinOps LLM | Scrum Master PSM1",
+    "headline": "Ingénieur Solutions IA & Transformation Numérique | Scrum Master PSM1 | 8 ans CNAM",
     "email": "jerome.jacq@gmail.com",
     "phone": "0667334598",
     "location": "Angers",
@@ -34,7 +34,7 @@
     "title": "Profil",
     "columns": 1,
     "hidden": false,
-    "content": "<p>Ingénieur senior avec <strong>20 ans d'expérience</strong> en environnements critiques, je conçois et déploie des <strong>solutions IA appliquées</strong> à des usages métier concrets.<br><br>Agents autonomes, automatisation de processus, prototypage rapide — je fais le lien entre <strong>enjeux terrain</strong>, <strong>delivery technique</strong> et <strong>maîtrise des coûts LLM</strong> (FinOps for AI). Scrum Master certifié, Product Owner et facilitateur agile.</p>"
+    "content": "<p>Ingénieur senior avec <strong>20 ans d'expérience</strong> dont <strong>8 ans au sein de la CNAM</strong> (DAMSI/DDST), je conçois et déploie des <strong>solutions IA appliquées à des usages métier concrets</strong> — agents autonomes, pipelines RAG, automatisation de processus, interfaces intelligentes.</p>\n\n<p>Après avoir assuré la modernisation et la gouvernance applicative au sein du pôle transverse (Gravitee, API Management, delivery Agile), je souhaite mettre mes compétences IA au service d'une mission à plus fort impact : <strong>piloter ou contribuer à la stratégie IA de l'Assurance Maladie</strong>, notamment au sein du LabInnov ou d'un pôle innovation/transformation numérique.</p>\n\n<p>Certifié <strong>FinOps for AI</strong>, <strong>Scrum Master PSM1</strong>, <strong>PCM</strong> — je fais le lien entre enjeux terrain, delivery technique et maîtrise des coûts LLM.</p>"
   },
   "sections": {
     "profiles": {
@@ -62,8 +62,9 @@
             "url": "",
             "label": ""
           },
-          "description": "<ul><li><p>Responsable de plusieurs applications critiques au sein du pôle transverse (Assurance Maladie).</p></li><li><p>Pilotage de la plateforme API <strong>Gravitee</strong> : passerelles, sécurité, monitoring, gouvernance.</p></li><li><p>Interface métier/dev en mode <strong>Agile (Scrum/Kanban)</strong> : cadrage, priorisation, delivery.</p></li></ul>",
-          "roles": []
+          "description": "<ul>\n<li><p>Responsable d'applications critiques au sein de la <strong>DAMSI/DDST</strong> (pôle transverse de soutien technique, Assurance Maladie).</p></li>\n<li><p>Pilotage et expertise de la plateforme <strong>Gravitee API Management</strong> : gouvernance des APIs, sécurité, monitoring, passerelles inter-systèmes.</p></li>\n<li><p>Interface métier/développement en mode <strong>Agile Scrum/Kanban</strong> : cadrage, priorisation, delivery sur des produits à fort impact opérationnel.</p></li>\n<li><p>Initiatives IA personnelles complémentaires : prototypage de solutions LLM (RAG, agents, multimodal) directement applicables aux cas d'usage métier de l'Assurance Maladie (FAQ intelligente, analyse documentaire, support de niveau 1).</p></li>\n</ul>",
+          "roles": [],
+          "summary": ""
         },
         {
           "id": "019c4789-ebaa-731e-9476-45224503ed95",
@@ -80,7 +81,8 @@
             "label": ""
           },
           "description": "<p>Conception et développement d'applications critiques Java/JEE pour grands comptes : <strong>DGFIP</strong>, <strong>France Télécom (Orange)</strong>, <strong>MACIF</strong> (constat en ligne), <strong>SNCF</strong>.</p>",
-          "roles": []
+          "roles": [],
+          "summary": ""
         },
         {
           "id": "019c4789-ebaa-731e-9476-45224503ed94",
@@ -97,7 +99,8 @@
             "label": ""
           },
           "description": "<ul><li><p>Mission longue durée Cnam : conception et développement d'applications web et bus applicatifs critiques.</p></li><li><p>Rôle de <strong>Scrum Master</strong> pour une équipe de 5 : cérémonies, facilitation, amélioration continue.</p></li></ul>",
-          "roles": []
+          "roles": [],
+          "summary": ""
         }
       ]
     },
@@ -122,7 +125,8 @@
             "url": "",
             "label": ""
           },
-          "description": ""
+          "description": "",
+          "summary": ""
         },
         {
           "id": "019c4798-ec3e-774b-a0e6-8ee14f5ad522",
@@ -140,7 +144,8 @@
             "url": "",
             "label": ""
           },
-          "description": ""
+          "description": "",
+          "summary": ""
         },
         {
           "id": "019c74f5-5e5d-721a-af1b-b217d5d82631",
@@ -158,7 +163,8 @@
             "url": "",
             "label": ""
           },
-          "description": ""
+          "description": "",
+          "summary": ""
         }
       ]
     },
@@ -168,48 +174,106 @@
       "hidden": false,
       "items": [
         {
-          "id": "019d-proj-0001-0000-000000000001",
-          "hidden": false,
-          "options": { "showLinkInTitle": false },
+          "id": "44301c7f-e3da-4eec-82f6-e8f361ac4a72",
+          "hidden": true,
+          "options": {
+            "showLinkInTitle": true
+          },
           "name": "OpenClaw – Environnement IA Autonome",
           "description": "<p>Déploiement et personnalisation d'un assistant IA souverain (OpenClaw) : agents, mémoire persistante, skills custom, automatisations — stack 100% indépendante et auto-hébergée.</p>",
-          "date": "2025 – Présent",
-          "website": { "url": "https://github.com/versila22/OpenClaw", "label": "" },
+          "website": {
+            "url": "https://github.com/versila22/OpenClaw",
+            "label": ""
+          },
           "keywords": [],
-          "roles": []
+          "roles": [],
+          "summary": "",
+          "period": "2025 – Présent"
         },
         {
-          "id": "019d-proj-0001-0000-000000000002",
+          "id": "bb7653e0-6f3c-4a6c-8865-23864844ef50",
           "hidden": false,
-          "options": { "showLinkInTitle": false },
+          "options": {
+            "showLinkInTitle": true
+          },
           "name": "Hotline Darons",
-          "description": "<p>Agent vocal IA de conseil parental — orchestration LLM, gestion de sessions et réponses contextuelles en temps réel.</p>",
-          "date": "2025",
-          "website": { "url": "https://github.com/versila22/hotline-darons", "label": "" },
+          "description": "<p>Bot Telegram multimodal (image, vocal, texte) pour support parental : RAG familial, filtre PII, escalade intelligente. Gemini 2.5 Flash. 38/38 tests.</p>",
+          "website": {
+            "url": "https://github.com/versila22/hotline-darons",
+            "label": "github.com/versila22/hotline-darons"
+          },
           "keywords": [],
-          "roles": []
+          "roles": [],
+          "summary": "",
+          "period": "2025"
         },
         {
-          "id": "019d-proj-0001-0000-000000000003",
+          "id": "ed685cde-e941-4663-a92b-6f6a917f1d59",
           "hidden": false,
-          "options": { "showLinkInTitle": false },
+          "options": {
+            "showLinkInTitle": true
+          },
+          "name": "RAG Juridique",
+          "description": "<p>Pipeline RAG production-ready : Hybrid Search BM25 + vecteurs, reranking cross-encoder, benchmark Claude vs Gemini. FastAPI + Gradio. 29/29 tests.</p>",
+          "website": {
+            "url": "https://github.com/versila22/rag-legal-demo",
+            "label": "github.com/versila22/rag-legal-demo"
+          },
+          "keywords": [],
+          "roles": [],
+          "summary": "",
+          "period": "2025"
+        },
+        {
+          "id": "2ddaa1f8-8470-4a19-89a4-4fb182df4c59",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": true
+          },
+          "name": "FinTrack",
+          "description": "<p>Gestion budgétaire perso + micro-entreprise : open banking Powens, insights Gemini 2.5 Flash, suivi coûts API (FinOps). FastAPI + SQLite.</p>",
+          "website": {
+            "url": "https://github.com/versila22/fintrack-backend",
+            "label": "github.com/versila22/fintrack-backend"
+          },
+          "keywords": [],
+          "roles": [],
+          "summary": "",
+          "period": "2026"
+        },
+        {
+          "id": "46f87e6b-c31e-4f89-899e-b4a7722b2f30",
+          "hidden": true,
+          "options": {
+            "showLinkInTitle": true
+          },
           "name": "DJ Impro",
           "description": "<p>Application IA de génération musicale live pour le théâtre d'improvisation — architecture zero-retention state, inférence temps réel.</p>",
-          "date": "2025",
-          "website": { "url": "https://github.com/versila22/DJ_Impro", "label": "" },
+          "website": {
+            "url": "https://github.com/versila22/DJ_Impro",
+            "label": ""
+          },
           "keywords": [],
-          "roles": []
+          "roles": [],
+          "summary": "",
+          "period": "2025"
         },
         {
-          "id": "019d-proj-0001-0000-000000000004",
-          "hidden": false,
-          "options": { "showLinkInTitle": false },
+          "id": "1688d252-bbc9-4c7f-92ec-982a147ac197",
+          "hidden": true,
+          "options": {
+            "showLinkInTitle": true
+          },
           "name": "OpenClaw YouTube Uploader",
           "description": "<p>Skill d'automatisation d'upload YouTube intégré à OpenClaw — pipeline de publication autonome via API Google.</p>",
-          "date": "2025",
-          "website": { "url": "https://github.com/versila22/openclaw-youtube-uploader", "label": "" },
+          "website": {
+            "url": "https://github.com/versila22/openclaw-youtube-uploader",
+            "label": ""
+          },
           "keywords": [],
-          "roles": []
+          "roles": [],
+          "summary": "",
+          "period": "2025"
         }
       ]
     },
@@ -233,7 +297,8 @@
             "Lovable",
             "Agents autonomes",
             "Prompt Engineering"
-          ]
+          ],
+          "summary": ""
         },
         {
           "id": "019c478c-df15-7476-acd0-66dd45c41f2f",
@@ -248,7 +313,8 @@
             "Gravitee",
             "Java/Spring Boot",
             "Docker"
-          ]
+          ],
+          "summary": ""
         },
         {
           "id": "019c478e-0f43-760b-aef3-9a49533ad9ab",
@@ -264,7 +330,8 @@
             "Product Owner (CSPO)",
             "Facilitateur Agile (ICAgile)",
             "Kanban"
-          ]
+          ],
+          "summary": ""
         },
         {
           "id": "019c478e-bd54-73ce-927b-f1f2ee565931",
@@ -278,7 +345,8 @@
             "Facilitation",
             "Conduite du changement",
             "Pédagogie technique"
-          ]
+          ],
+          "summary": ""
         }
       ]
     },
@@ -292,7 +360,8 @@
           "hidden": false,
           "language": "English",
           "fluency": "Niveau Professionnel (TOEIC : 850/990)",
-          "level": 4
+          "level": 4,
+          "summary": ""
         }
       ]
     },
@@ -310,7 +379,8 @@
             "Écoute active",
             "Adaptation",
             "Leadership situationnel"
-          ]
+          ],
+          "summary": ""
         }
       ]
     },
@@ -338,7 +408,8 @@
             "url": "",
             "label": ""
           },
-          "description": "<p></p>"
+          "description": "<p></p>",
+          "summary": ""
         },
         {
           "id": "019c4792-7151-746d-a508-7b7f54758338",
@@ -353,7 +424,8 @@
             "url": "",
             "label": ""
           },
-          "description": "<p></p>"
+          "description": "<p></p>",
+          "summary": ""
         },
         {
           "id": "019c4797-691c-7519-9ded-d6988c2520a5",
@@ -368,7 +440,8 @@
             "url": "",
             "label": ""
           },
-          "description": "<p></p>"
+          "description": "<p></p>",
+          "summary": ""
         },
         {
           "id": "019c4796-agil-7000-a000-000000000001",
@@ -383,7 +456,8 @@
             "url": "",
             "label": ""
           },
-          "description": ""
+          "description": "",
+          "summary": ""
         }
       ]
     },
