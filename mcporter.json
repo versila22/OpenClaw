@@ -3,7 +3,7 @@
     "google": {
       "command": "npx",
       "env": {
-        "GOOGLE_API_KEY": "[REDACTED - active key stored in config/env]"
+        "GOOGLE_API_KEY": "REDACTED_SET_VIA_LOCAL_ENV"
       }
     }
   },
