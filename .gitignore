@@ -2,8 +2,15 @@
 *.key
 *.pem
 .env
+.env.*
+!.env.example
 *.token
+*.secret
+secrets.*
+credentials.json
+mcporter.json
 openclaw.json
+config/identity/
 
 # Media / large files
 ../media/
@@ -15,6 +22,8 @@ openclaw.json
 .cache/
 __pycache__/
 *.pyc
+.venv/
+venv/
 node_modules/
 
 # CV download helper

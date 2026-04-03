@@ -12,7 +12,7 @@
 - MVP bot Telegram IA multimodal pour support parental
 - GitHub : https://github.com/versila22/hotline-darons
 - Bot Telegram : 8436824281:AAEOpcyv0WxyPXr6Gds3e3tsb3AS59Jqepc
-- Clé Gemini active : [REDACTED - active key stored in config/env]
+- Clé Gemini active : [REDACTED - stored in OpenClaw config/env]
 - Embedding : gemini-embedding-001 (text-embedding-004 non dispo avec cette clé)
 - 38/38 tests passent, escalade validée en live
 
