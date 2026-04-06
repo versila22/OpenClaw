@@ -61,3 +61,10 @@
 - Ne jamais commenter l'heure pour suggérer d'arrêter de travailler
 - Accompagnement qui challenge autant qu'il soutient
 - Apprécie les analyses stratégiques directes sans fioriture
+
+## Conventions modèles OpenClaw
+
+- **Orchestration / session principale** → `anthropic/claude-opus-4-6` (défaut config)
+- **Subagents code** → toujours spawner avec `model: "openai/gpt-5.4"`
+- **Tâches légères (heartbeat, cron isolé, lecture/écriture)** → `google/gemini-2.5-flash`
+- **Gemma 4** → abandonné (nécessite install locale, VPS trop petit) — Gemini suffit
