@@ -11,11 +11,13 @@
 ### ai-finops ⭐
 - Dashboard FinOps pour surveiller les coûts LLM/API (OpenAI, Anthropic, Google, ElevenLabs, Lovable)
 - GitHub : https://github.com/versila22/ai-finops
-- Frontend : React + Vite + shadcn sur Lovable (https://ai-finops.lovable.app/)
-- Backend : FastAPI + SQLAlchemy + SQLite, dockerisé
-- HTTPS via Traefik + Let's Encrypt sur https://ai-finops-api.duckdns.org
-- Connecteurs réels : OpenAI (usage API), ElevenLabs (subscription API), reste en mode manuel
-- ⚠️ Bug en cours : dashboard vide après rebuild Docker (seed/DB path issue)
+- Frontend : React + Vite + shadcn, self-hosted via Docker + Nginx sur ai-finops.duckdns.org
+- Backend : FastAPI + SQLAlchemy + SQLite, dockerisé sur ai-finops-api.duckdns.org
+- HTTPS via Traefik + Let's Encrypt
+- Auth JWT complète (login/register), CRUD providers, alertes seuils, KPI cards navigables
+- Déployé v0.2.0 (docker-compose.prod.yml, Lovable abandonné pour le hosting)
+- Connecteurs : ElevenLabs ✅ réel, OpenAI ⚠️ estimé (besoin Admin key sk-admin), Anthropic 🔑 validation seulement, Google ❌ pas connecté
+- Cron sync quotidien 7h (id: fcb8d05e)
 
 ### lima-app ⭐
 - App web gestion Ligue d'Improvisation du Maine-et-Loire (~60 adhérents)
@@ -26,6 +28,9 @@
 - Login admin : admin@lima-impro.fr / Admin1234!
 - Activity logging middleware ajouté (2026-04-06) + endpoints admin analytics
 - Intégration Notion API configurée (2026-04-06)
+- Auth frontend complet : Login, Activate, ForgotPassword, ResetPassword + AuthContext
+- Email SMTP async (activation + password reset) — configurable via env vars
+- Formulaire événements amélioré : calendrier visuel, cast dynamique par type, combobox membres
 
 ### hotline-darons
 - MVP bot Telegram IA multimodal pour support parental
@@ -72,7 +77,7 @@
 - Ancienne clé Gemini révoquée (leaked) : [REDACTED] — NE PAS UTILISER
 - Backup GitHub nocturne : cron 3h Europe/Paris, job id: 75062d61-eb76-4346-9bf1-8354b5614169
 - Notion API : clé dans ~/.config/notion/api_key (chmod 600), intégration connectée
-- DuckDNS : compte via GitHub (versila22), domaine ai-finops-api.duckdns.org → 72.61.196.210
+- DuckDNS : compte via GitHub (versila22), domaines ai-finops-api.duckdns.org + ai-finops.duckdns.org → VPS
 - Docker OpenClaw : /opt/openclaw/docker-compose.yml, .env contient toutes les clés API
 - Traefik : /docker/traefik/docker-compose.yml (network_mode: host, Let's Encrypt)
 
@@ -108,10 +113,14 @@
 - ai-finops : 36 tests ✅
 - lima-app : 95 tests ✅
 - fintrack-backend : 15 tests (dont IDOR) ✅
-- hotline-darons : 30+ tests ✅
+- hotline-darons : 38 tests ✅
 
 ## Leçons apprises
 
 - passlib + bcrypt cassé sous Python 3.13 → utiliser pbkdf2_sha256 comme scheme primaire
 - aiosqlite + async SQLAlchemy tests → désactiver middlewares qui écrivent en DB async (sinon database locked)
 - Subagents GPT-5.4 timeout parfois sur le push git → vérifier et finir manuellement
+- Lovable ne redéploie pas depuis GitHub → servir le front soi-même via Docker
+- VITE_API_URL dans Dockerfile + code qui ajoute /api/v1 = double prefix → attention au build
+- .dockerignore indispensable (dist/ + node_modules/) pour builds Docker propres
+- Toujours `git pull` avant deploy VPS, et `docker rmi` si le cache Docker est suspect
