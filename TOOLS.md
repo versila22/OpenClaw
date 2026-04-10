@@ -48,6 +48,12 @@ Add whatever helps you do your job. This is your cheat sheet.
 - Auth GitHub CLI configurée et fonctionnelle (`gh auth status` OK)
 - Règle: ne jamais utiliser de PAT dans les URLs remote
 
+### Git / sécurité
+- `gitleaks` installé via Linuxbrew dans le conteneur OpenClaw
+- Binaire: `/data/linuxbrew/.linuxbrew/bin/gitleaks`
+- Version validée: `8.30.1`
+- Si PATH incomplet dans un shell, utiliser le chemin absolu ci-dessus
+
 ### Notion
 - Notion API configurée sur le VPS principal
 - Clé stockée dans `~/.config/notion/api_key`
@@ -56,9 +62,13 @@ Add whatever helps you do your job. This is your cheat sheet.
 - Usage validé en lecture + écriture en avril 2026
 
 ### Google Workspace
-- `gog` non installé à ce stade sur le VPS principal
-- Donc pas encore d'accès opérationnel à Drive / Docs / Sheets / Calendar / Gmail via CLI
-- À configurer proprement ensuite, sans stocker de secrets dans le workspace Git
+- `gog` est installé via Linuxbrew dans le conteneur OpenClaw
+- Binaire: `/data/linuxbrew/.linuxbrew/bin/gog`
+- Version validée: `v0.12.0`
+- Config locale: `~/.config/gogcli`
+- Auth Drive déjà configurée et utilisée avec succès
+- Log technique: `/data/.openclaw/workspace/labs/gog_setup_log.md`
+- À continuer sans stocker de secrets dans le workspace Git
 
 ### OpenClaw workspace security
 - Hooks anti-secrets installés sur les repos Git du workspace

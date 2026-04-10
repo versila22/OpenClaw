@@ -28,3 +28,4 @@ node_modules/
 
 # CV download helper
 cv-download.html
+.tools/gitleaks/
