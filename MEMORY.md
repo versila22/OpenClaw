@@ -18,19 +18,31 @@
 - Déployé v0.2.0 (docker-compose.prod.yml, Lovable abandonné pour le hosting)
 - Connecteurs : ElevenLabs ✅ réel, OpenAI ⚠️ estimé (besoin Admin key sk-admin), Anthropic 🔑 validation seulement, Google ❌ pas connecté
 - Cron sync quotidien 7h (id: fcb8d05e)
+- ⚠️ Cron sync en 401 depuis 08/04 : routes `/sync` protégées JWT, le cron n'envoie pas de token valide → fix requis : login avant sync ou service token dédié
 
 ### lima-app ⭐
 - App web gestion Ligue d'Improvisation du Maine-et-Loire (~60 adhérents)
-- GitHub backend : https://github.com/versila22/lima-backend
+- GitHub backend : https://github.com/versila22/lima-backend (attention : le repo séparé diverge de lima-app/backend/)
 - GitHub frontend : https://github.com/versila22/lima-app
-- Stack : FastAPI + PostgreSQL (Railway) + React (Lovable)
+- **Railway déploie depuis `lima-app/backend/`** (root dir `/backend`), PAS depuis le repo séparé `lima-backend`
+- Stack : FastAPI + PostgreSQL (Railway) + React (VPS Docker)
 - Railway domain : api-production-e15b.up.railway.app
+- Frontend VPS : limaimpro.duckdns.org (rebuild : `npm ci --include=dev && npm run build` + `docker compose -f docker-compose.prod.yml up -d --build frontend`)
 - Login admin : admin@lima-impro.fr / Admin1234!
+- **Architecture déploiement** : backend Railway déploie depuis `lima-app/backend/` (pas le repo séparé `lima-backend` qui avait divergé — synced le 07/04)
+- Frontend servi depuis VPS (`limaimpro.duckdns.org`), API URL pointe sur Railway (`api-production-e15b.up.railway.app`)
+- Rebuild frontend VPS : `npm ci --include=dev && npm run build` + `docker compose -f docker-compose.prod.yml up -d --build frontend`
+- Migrations Alembic (activity_logs, app_settings, indexes) pas encore appliquées en prod Railway
+- Trombinoscope : photos extraites d'un PDF Drive, mapping auto peu fiable, identification manuelle à finir
+- Scans sécu détectés sur l'API : `/@fs/etc/passwd`, `/.git/config`, `/etc/passwd` — 40-68 req chacun, tous 404/403
 - Activity logging middleware ajouté (2026-04-06) + endpoints admin analytics
 - Intégration Notion API configurée (2026-04-06)
 - Auth frontend complet : Login, Activate, ForgotPassword, ResetPassword + AuthContext
 - Email SMTP async (activation + password reset) — configurable via env vars
 - Formulaire événements amélioré : calendrier visuel, cast dynamique par type, combobox membres
+- Bugs connus : joueurs loisir (75€) classés Cabaret (tranche 70-90€ dans import_service.py) → fix : ajouter colonne groupe dans CSV
+- Bug connu : Mon Planning vide pour admin → compte admin non lié aux alignment_assignments du membre "Jérôme Jacq"
+- Drawer bottom sheet (vaul) sur page Agenda pour UX mobile (commit 24d9a44)
 
 ### hotline-darons
 - MVP bot Telegram IA multimodal pour support parental
@@ -120,6 +132,8 @@
 - passlib + bcrypt cassé sous Python 3.13 → utiliser pbkdf2_sha256 comme scheme primaire
 - aiosqlite + async SQLAlchemy tests → désactiver middlewares qui écrivent en DB async (sinon database locked)
 - Subagents GPT-5.4 timeout parfois sur le push git → vérifier et finir manuellement
+- Scans de vulnérabilités actifs sur le VPS (/@fs/etc/passwd, /.git/config, /etc/passwd) → tous 404/403, à surveiller/filtrer côté Traefik
+- railway.toml : pas d'Alembic auto, pas de $PORT variable → hardcodé port 8000
 - Lovable ne redéploie pas depuis GitHub → servir le front soi-même via Docker
 - VITE_API_URL dans Dockerfile + code qui ajoute /api/v1 = double prefix → attention au build
 - .dockerignore indispensable (dist/ + node_modules/) pour builds Docker propres
