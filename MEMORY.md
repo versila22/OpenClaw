@@ -129,6 +129,9 @@
 
 ## Leçons apprises
 
+- Sans web_search, ne PAS inventer de noms de lieux/commerces — dire "je ne sais pas" plutôt qu'halluciner (incident 2026-05-26)
+- Clé Gemini API re-flaggée "leaked" le 2026-05-26 → web_search en 403. Nécessite nouvelle clé dans /opt/openclaw/.env + gateway restart
+
 - passlib + bcrypt cassé sous Python 3.13 → utiliser pbkdf2_sha256 comme scheme primaire
 - aiosqlite + async SQLAlchemy tests → désactiver middlewares qui écrivent en DB async (sinon database locked)
 - Subagents GPT-5.4 timeout parfois sur le push git → vérifier et finir manuellement
