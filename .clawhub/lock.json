@@ -3,15 +3,15 @@
   "skills": {
     "gog": {
       "version": "1.0.0",
-      "installedAt": 1772744602195
+      "installedAt": 1780209050426
     },
     "qmd": {
       "version": "1.0.0",
-      "installedAt": 1772802655093
+      "installedAt": 1780209053775
     },
     "notion": {
       "version": "1.0.0",
-      "installedAt": 1772926216424
+      "installedAt": 1780209056004
     }
   }
 }
